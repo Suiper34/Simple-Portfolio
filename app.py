@@ -1,9 +1,10 @@
+from os import urandom
 import re
 
 from flask import Flask, flash, redirect, render_template, request, url_for
 
 app = Flask(__name__)
-app.secret_key = 'replace_this_with_a_secure_random_key'
+app.secret_key = urandom(32)
 
 
 def valid_email(email: str) -> bool:
